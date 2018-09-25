@@ -13,7 +13,7 @@
     <ProjectGuid>{864AD626-5968-4AD3-8F59-E4CAC92BCEA9}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>StairsAutomation</RootNamespace>
+    <RootNamespace>Revit.SDK.Samples.StairsAutomation.CS</RootNamespace>
     <AssemblyName>StairsAutomation</AssemblyName>
     <TargetFrameworkVersion>v4.7</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
