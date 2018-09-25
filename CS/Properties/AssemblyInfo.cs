@@ -1,5 +1,5 @@
 ﻿//
-// (C) Copyright 2003-2017 by Autodesk, Inc.
+// (C) Copyright 2003-2018 by Autodesk, Inc.
 //
 // Permission to use, copy, modify, and distribute this software in
 // object code form for any purpose and without fee is hereby granted,
@@ -32,7 +32,7 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
 [assembly: AssemblyProduct("")]
-[assembly: AssemblyCopyright("Copyright © Autodesk, Inc. 2014")]
+[assembly: AssemblyCopyright("Copyright © Autodesk, Inc. 2014-2018")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
@@ -51,5 +51,5 @@ using System.Runtime.InteropServices;
 //      Build Number
 //      Revision
 //
-[assembly: AssemblyVersion("1.0.0.0")]
-[assembly: AssemblyFileVersion("1.0.0.0")]
+[assembly: AssemblyVersion("2019.1.0.0")]
+[assembly: AssemblyFileVersion("2019.1.0.0")]

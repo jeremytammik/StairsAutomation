@@ -6,9 +6,9 @@
     <FullClassName>Revit.SDK.Samples.StairsAutomation.CS.Command</FullClassName>
     <Text>Stairs automation</Text>
     <Description>A utility sample that creates a series of stairs, stairs runs and stairs landings configurations 
-    based upon predefined rules and parameters.</Description>
+      based upon predefined rules and parameters.</Description>
     <VisibilityMode>AlwaysVisible</VisibilityMode>
-	<LanguageType>Unknown</LanguageType>
-	<VendorId>ADSK</VendorId>
+    <LanguageType>Unknown</LanguageType>
+    <VendorId>ADSK</VendorId>
   </AddIn>
 </RevitAddIns>
