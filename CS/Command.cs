@@ -20,53 +20,53 @@
 // (Rights in Technical Data and Computer Software), as applicable.
 //
 
-using System;
-//using System.Windows.Forms;
-using System.Collections;
-using System.Collections.Generic;
-
-using Autodesk.Revit;
+using Autodesk.Revit.Attributes;
 using Autodesk.Revit.DB;
 using Autodesk.Revit.UI;
-using Autodesk.Revit.UI.Selection;
-
 
 namespace Revit.SDK.Samples.StairsAutomation.CS
 {
+  /// <summary>
+  /// Implements the Revit add-in interface IExternalCommand
+  /// </summary>
+  [Transaction( TransactionMode.Manual )]
+  public class Command : IExternalCommand
+  {
+    #region IExternalCommand Members
+
     /// <summary>
-    /// Implements the Revit add-in interface IExternalCommand
+    /// The implementation of the automatic stairs creation command.
     /// </summary>
-    [Autodesk.Revit.Attributes.Transaction(Autodesk.Revit.Attributes.TransactionMode.Manual)]
-    [Autodesk.Revit.Attributes.Regeneration(Autodesk.Revit.Attributes.RegenerationOption.Manual)]
-    public class Command : IExternalCommand
+    public Result Execute( 
+      ExternalCommandData commandData, 
+      ref string message, 
+      ElementSet elements )
     {
-        #region IExternalCommand Members
+      UIDocument activeDocument = commandData.Application.ActiveUIDocument;
+      Document document = activeDocument.Document;
 
-        /// <summary>
-        /// The implementation of the automatic stairs creation command.
-        /// </summary>
-        public Result Execute(ExternalCommandData commandData, ref string message, Autodesk.Revit.DB.ElementSet elements)
-        {
-            UIDocument activeDocument = commandData.Application.ActiveUIDocument;
-            Document document = activeDocument.Document;
+      // Create an automation utility with a hardcoded 
+      // stairs configuration number
 
-            // Create an automation utility with a hardcoded stairs configuration number
-            StairsAutomationUtility utility = StairsAutomationUtility.Create(document, stairsConfigs[stairsIndex]);
+      StairsAutomationUtility utility 
+        = StairsAutomationUtility.Create( 
+          document, stairsConfigs[stairsIndex] );
 
-            // Generate the stairs
-            utility.GenerateStairs();
+      // Generate the stairs
 
-            stairsIndex++;
-            if (stairsIndex > 4)
-                stairsIndex = 0;
+      utility.GenerateStairs();
 
-            return Result.Succeeded;
-        }
+      stairsIndex++;
+      if( stairsIndex > 4 )
+        stairsIndex = 0;
 
-        #endregion
-
-        private static int stairsIndex = 0;
-        private static int[] stairsConfigs = { 0, 3, 4, 1, 2 };
+      return Result.Succeeded;
     }
+
+    #endregion
+
+    private static int stairsIndex = 0;
+    private static int[] stairsConfigs = { 0, 3, 4, 1, 2 };
+  }
 }
 
