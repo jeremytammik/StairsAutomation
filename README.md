@@ -9,6 +9,8 @@ C# .NET Revit 2019.1 SDK StairsAutomation sample.
 
 Demonstrate how to remove warning messages for full on-line automation.
 
+![StairsAutomation result](img/StairsAutomation_result.png)
+
 
 ## Author
 
