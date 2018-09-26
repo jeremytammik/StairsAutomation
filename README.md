@@ -7,10 +7,10 @@
 
 C# .NET Revit 2019.1 SDK StairsAutomation sample.
 
-1. [Remove Warning Messages for Full On-Line Automation](#1)
+1. [Remove warning messages for full on-line automation](#1)
 &ndash; Detailed [blog post on swallowing StairsAutomation warnings](http://thebuildingcoder.typepad.com/blog/2018/09/swallowing-stairsautomation-warnings.html)
-
-
+2. [Remove user interface references and automatically run](#2)
+&ndash; Detailed [blog post on auto-run an add-in for design automation](http://thebuildingcoder.typepad.com/blog/2018/09/auto-run-an-add-in-for-design-automation.html)
 
 
 ![StairsAutomation result](img/StairsAutomation_result.png)
@@ -73,6 +73,18 @@ Now, all five stair variations are created without any warning messages being di
 
 For more deails, please refer to [The Building Coder](http://thebuildingcoder.typepad.com) discussion
 on [swallowing StairsAutomation warnings](http://thebuildingcoder.typepad.com/blog/2018/09/swallowing-stairsautomation-warnings.html).
+
+
+## <a name="2"></a> Step 2. Remove User Interface References and Automatically Run Add-In
+
+- Remove all references to `RevitAPIUI.dll`
+- Replace the external command derived from `IExternalCommand` by an external DB application derived from `IExternalDBApplication`
+- Run automatically, e.g., hooking into `ApplicationInitialized`
+- Open model file
+
+For more deails, please refer to [The Building Coder](http://thebuildingcoder.typepad.com) discussion
+on [auto-running an add-in for design automation](http://thebuildingcoder.typepad.com/blog/2018/09/auto-run-an-add-in-for-design-automation.html).
+
 
 
 ## Author
