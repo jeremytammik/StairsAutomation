@@ -7,9 +7,12 @@
 
 C# .NET Revit 2019.1 SDK StairsAutomation sample.
 
-Demonstrate how to remove warning messages for full on-line automation.
+1. [Remove Warning Messages for Full On-Line Automation](#1) 
+
 
 ![StairsAutomation result](img/StairsAutomation_result.png)
+
+## <a name="1"></a> Step 1. Remove Warning Messages for Full On-Line Automation
 
 - Stair #3 generates [8 warnings about overlapping handrail model line elements](warning_messages/StairsAutomation_warnings_stair_3_8.html).
 - Stair #4 generates [1 warning about a missing riser](warning_messages/StairsAutomation_warnings_stair_4_1.html).
