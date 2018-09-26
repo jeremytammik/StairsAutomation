@@ -45,8 +45,8 @@ namespace Revit.SDK.Samples.StairsAutomation.CS
       // Create an automation utility with a hardcoded 
       // stairs configuration number
 
-      StairsAutomationUtility utility 
-        = StairsAutomationUtility.Create( 
+      StairsAutomationUtility utility
+        = StairsAutomationUtility.Create(
           document, stairsConfigs[stairsIndex] );
 
       // Generate the stairs
@@ -58,8 +58,8 @@ namespace Revit.SDK.Samples.StairsAutomation.CS
         stairsIndex = 0;
     }
 
-    void OnApplicationInitialized( 
-      object sender, 
+    void OnApplicationInitialized(
+      object sender,
       ApplicationInitializedEventArgs e )
     {
       // Sender is an Application instance:
@@ -76,7 +76,7 @@ namespace Revit.SDK.Samples.StairsAutomation.CS
       Execute( doc );
     }
 
-    public ExternalDBApplicationResult OnStartup( 
+    public ExternalDBApplicationResult OnStartup(
       ControlledApplication a )
     {
       // ApplicationInitialized cannot be used in Forge!
@@ -84,7 +84,7 @@ namespace Revit.SDK.Samples.StairsAutomation.CS
       return ExternalDBApplicationResult.Succeeded;
     }
 
-    public ExternalDBApplicationResult OnShutdown( 
+    public ExternalDBApplicationResult OnShutdown(
       ControlledApplication a )
     {
       return ExternalDBApplicationResult.Succeeded;
