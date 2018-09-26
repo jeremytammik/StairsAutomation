@@ -20,26 +20,27 @@
 // (Rights in Technical Data and Computer Software), as applicable.
 //
 
-using Autodesk.Revit.ApplicationServices;
-using Autodesk.Revit.Attributes;
+using System;
 using Autodesk.Revit.DB;
 using Autodesk.Revit.DB.Events;
+using Autodesk.Revit.ApplicationServices;
 
 namespace Revit.SDK.Samples.StairsAutomation.CS
 {
   /// <summary>
   /// Implement the Revit add-in IExternalDBApplication interface
   /// </summary>
-  [Transaction( TransactionMode.Manual )]
-  public class App : IExternalDBApplication
+  public class DbApp : IExternalDBApplication
   {
+    string _model_path = "C:/a/vs/StairsAutomation/CS/Stairs_automation_2019_1.rvt";
+
     /// <summary>
     /// The implementation of the automatic stairs creation.
     /// </summary>
-    public void Execute()
+    public void Execute( Document document )
     {
       //UIDocument activeDocument = commandData.Application.ActiveUIDocument;
-      Document document = null; // activeDocument.Document;
+      //Document document = activeDocument.Document;
 
       // Create an automation utility with a hardcoded 
       // stairs configuration number
@@ -60,7 +61,19 @@ namespace Revit.SDK.Samples.StairsAutomation.CS
     void OnApplicationInitialized( 
       object sender, ApplicationInitializedEventArgs e )
     {
-      Execute();
+      // Sender is an Application instance:
+
+      Application app = sender as Application;
+
+      Document doc = app.OpenDocumentFile( _model_path );
+
+      if( doc == null )
+      {
+        throw new InvalidOperationException(
+          "Could not open document." );
+      }
+
+      Execute( doc );
     }
 
     public ExternalDBApplicationResult OnStartup( 
