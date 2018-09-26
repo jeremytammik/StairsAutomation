@@ -59,7 +59,8 @@ namespace Revit.SDK.Samples.StairsAutomation.CS
     }
 
     void OnApplicationInitialized( 
-      object sender, ApplicationInitializedEventArgs e )
+      object sender, 
+      ApplicationInitializedEventArgs e )
     {
       // Sender is an Application instance:
 
@@ -72,7 +73,6 @@ namespace Revit.SDK.Samples.StairsAutomation.CS
         throw new InvalidOperationException(
           "Could not open document." );
       }
-
       Execute( doc );
     }
 
