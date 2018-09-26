@@ -20,30 +20,23 @@
 // (Rights in Technical Data and Computer Software), as applicable.
 //
 
-//using System.Collections.Generic;
-using System;
 using Autodesk.Revit.ApplicationServices;
 using Autodesk.Revit.Attributes;
 using Autodesk.Revit.DB;
-//using Autodesk.Revit.UI;
+using Autodesk.Revit.DB.Events;
 
 namespace Revit.SDK.Samples.StairsAutomation.CS
 {
   /// <summary>
-  /// Implements the Revit add-in interface IExternalCommand
+  /// Implement the Revit add-in IExternalDBApplication interface
   /// </summary>
   [Transaction( TransactionMode.Manual )]
   public class App : IExternalDBApplication
   {
-    #region IExternalCommand Members
-
     /// <summary>
-    /// The implementation of the automatic stairs creation command.
+    /// The implementation of the automatic stairs creation.
     /// </summary>
-    public void Execute( 
-      //ExternalCommandData commandData, 
-      ref string message, 
-      ElementSet elements )
+    public void Execute()
     {
       //UIDocument activeDocument = commandData.Application.ActiveUIDocument;
       Document document = null; // activeDocument.Document;
@@ -59,24 +52,29 @@ namespace Revit.SDK.Samples.StairsAutomation.CS
 
       utility.GenerateStairs();
 
-      stairsIndex++;
+      ++stairsIndex;
       if( stairsIndex > 4 )
         stairsIndex = 0;
-
-      //return Result.Succeeded;
     }
 
-    public ExternalDBApplicationResult OnStartup( ControlledApplication application )
+    void OnApplicationInitialized( 
+      object sender, ApplicationInitializedEventArgs e )
     {
-      throw new NotImplementedException();
+      Execute();
     }
 
-    public ExternalDBApplicationResult OnShutdown( ControlledApplication application )
+    public ExternalDBApplicationResult OnStartup( 
+      ControlledApplication a )
     {
-      throw new NotImplementedException();
+      a.ApplicationInitialized += OnApplicationInitialized;
+      return ExternalDBApplicationResult.Succeeded;
     }
 
-    #endregion
+    public ExternalDBApplicationResult OnShutdown( 
+      ControlledApplication a )
+    {
+      return ExternalDBApplicationResult.Succeeded;
+    }
 
     private static int stairsIndex = 0;
     private static int[] stairsConfigs = { 0, 3, 4, 1, 2 };
