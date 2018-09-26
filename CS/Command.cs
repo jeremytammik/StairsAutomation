@@ -21,6 +21,8 @@
 //
 
 //using System.Collections.Generic;
+using System;
+using Autodesk.Revit.ApplicationServices;
 using Autodesk.Revit.Attributes;
 using Autodesk.Revit.DB;
 //using Autodesk.Revit.UI;
@@ -31,20 +33,20 @@ namespace Revit.SDK.Samples.StairsAutomation.CS
   /// Implements the Revit add-in interface IExternalCommand
   /// </summary>
   [Transaction( TransactionMode.Manual )]
-  public class Command : IExternalCommand
+  public class App : IExternalDBApplication
   {
     #region IExternalCommand Members
 
     /// <summary>
     /// The implementation of the automatic stairs creation command.
     /// </summary>
-    public Result Execute( 
-      ExternalCommandData commandData, 
+    public void Execute( 
+      //ExternalCommandData commandData, 
       ref string message, 
       ElementSet elements )
     {
-      UIDocument activeDocument = commandData.Application.ActiveUIDocument;
-      Document document = activeDocument.Document;
+      //UIDocument activeDocument = commandData.Application.ActiveUIDocument;
+      Document document = null; // activeDocument.Document;
 
       // Create an automation utility with a hardcoded 
       // stairs configuration number
@@ -61,7 +63,17 @@ namespace Revit.SDK.Samples.StairsAutomation.CS
       if( stairsIndex > 4 )
         stairsIndex = 0;
 
-      return Result.Succeeded;
+      //return Result.Succeeded;
+    }
+
+    public ExternalDBApplicationResult OnStartup( ControlledApplication application )
+    {
+      throw new NotImplementedException();
+    }
+
+    public ExternalDBApplicationResult OnShutdown( ControlledApplication application )
+    {
+      throw new NotImplementedException();
     }
 
     #endregion
