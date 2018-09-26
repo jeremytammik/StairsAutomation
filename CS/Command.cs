@@ -66,6 +66,7 @@ namespace Revit.SDK.Samples.StairsAutomation.CS
     public ExternalDBApplicationResult OnStartup( 
       ControlledApplication a )
     {
+      // ApplicationInitialized cannot be used in Forge!
       a.ApplicationInitialized += OnApplicationInitialized;
       return ExternalDBApplicationResult.Succeeded;
     }
