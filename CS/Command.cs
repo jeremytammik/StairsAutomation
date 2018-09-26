@@ -20,10 +20,10 @@
 // (Rights in Technical Data and Computer Software), as applicable.
 //
 
-using System.Collections.Generic;
+//using System.Collections.Generic;
 using Autodesk.Revit.Attributes;
 using Autodesk.Revit.DB;
-using Autodesk.Revit.UI;
+//using Autodesk.Revit.UI;
 
 namespace Revit.SDK.Samples.StairsAutomation.CS
 {

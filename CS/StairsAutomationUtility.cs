@@ -267,14 +267,17 @@ namespace Revit.SDK.Samples.StairsAutomation.CS
           t.Commit();
         }
 
-        editScope.Commit( new StairsEditScopeFailuresPreprocessor() );
+        editScope.Commit( 
+          new StairsEditScopeFailuresPreprocessor() );
       }
     }
   }
 
-  class StairsEditScopeFailuresPreprocessor : IFailuresPreprocessor
+  class StairsEditScopeFailuresPreprocessor 
+    : IFailuresPreprocessor
   {
-    public FailureProcessingResult PreprocessFailures( FailuresAccessor a )
+    public FailureProcessingResult PreprocessFailures( 
+      FailuresAccessor a )
     {
       IList<FailureMessageAccessor> failures
       = a.GetFailureMessages();
