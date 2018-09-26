@@ -7,7 +7,8 @@
 
 C# .NET Revit 2019.1 SDK StairsAutomation sample.
 
-1. [Remove Warning Messages for Full On-Line Automation](#1) &ndash; [Detailed blog post on swallowing StairsAutomation warnings](http://thebuildingcoder.typepad.com/blog/2018/09/swallowing-stairsautomation-warnings.html)
+1. [Remove Warning Messages for Full On-Line Automation](#1)
+&ndash; Detailed [blog post on swallowing StairsAutomation warnings](http://thebuildingcoder.typepad.com/blog/2018/09/swallowing-stairsautomation-warnings.html)
 
 
 
